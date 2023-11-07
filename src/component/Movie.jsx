@@ -15,7 +15,6 @@ function Movie( {poster_path ,title , vote_average , overview}) {
   }
 
   return (
-    <EHTML>
       <Body>
         <MovieBox>
           <Img onMouseOver={onmouse}  onMouseLeave={outmouse} src = {ImgURL+poster_path} alt="Img" id ="poster"></Img>
@@ -30,7 +29,6 @@ function Movie( {poster_path ,title , vote_average , overview}) {
             </MoreInfo>
         </MovieBox>
       </Body>
-    </EHTML>
   );
 }
 
