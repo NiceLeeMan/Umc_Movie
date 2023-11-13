@@ -1,21 +1,29 @@
-import Ad from "./Ad";
-import { useState } from "react"
+import React from 'react';
+import Ad from './Ad';
 
-function AdPage(){
+class AdPage extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = { Show : true };
+		this.handleToggleClick = this.handleToggleClick.bind(this);
+	}
 
-    const [Show , SetShow] = useState(true);
+	HandleToggleClick() {
+		this.setState(prevState => ({
+			Show : !prevState.Show
+		}));
+	}
 
-    function HandToggleClick(){
-        SetShow(!Show);
-    }
-    console.log(Show);
-
-    return(
-        <>
-         <Ad Show={Show} />
-         <button onClick={HandToggleClick}>{Show ? '광고안보기' : '광고보기'}</button>
-      </>
-    )
+	render() {
+		return (
+            <>
+            <Ad Show = {Show} />
+            <button onClick={this.HandleToggleClick}>
+				{this.state.Show ? '광고 안 보기' : '광고 보기'}
+			</button>
+            </>
+        );
+	}
 }
 
 export default AdPage;
